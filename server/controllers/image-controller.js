@@ -9,24 +9,25 @@ const uploadImage = async (req, res) => {
   try {
     const file = await File.create(fileObj);
     console.log(file);
-    res.status(200).json({ path: `http://localhost:5000/file/${file._id}` });
+    res
+      .status(200)
+      .json({ path: `https://shares-ppq0.onrender.com/file/${file._id}` });
   } catch (err) {
     console.error(err.message);
   }
 };
 
-const downloadImage=async(req,res)=>{
-  try{
-    const file=await File.findById(req.params.fileId)
+const downloadImage = async (req, res) => {
+  try {
+    const file = await File.findById(req.params.fileId);
 
-    file.downloadContent++
-    await file.save()
+    file.downloadContent++;
+    await file.save();
 
-    res.download(file.path,file.name)
-
-  }catch(err){
-    console.error(err.message)
+    res.download(file.path, file.name);
+  } catch (err) {
+    console.error(err.message);
   }
-}
+};
 
-module.exports = {uploadImage,downloadImage};
+module.exports = { uploadImage, downloadImage };

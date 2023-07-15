@@ -5,6 +5,7 @@ import { uploadFile } from "./services/api";
 const App = () => {
   const InputRef = useRef();
   const [file, setFile] = useState("");
+  const [share,setShare]=useState("")
 
   function OnUploadClick() {
     InputRef.current.click();
@@ -18,6 +19,7 @@ const App = () => {
         data.append("file", file);
 
         let response = await uploadFile(data);
+        setShare(response.path)
         console.log(response);
       }
     };
@@ -46,6 +48,8 @@ const App = () => {
             setFile(e.target.files[0]);
           }}
         />
+        {share?<a href={share}>click chey ra</a>:<div></div>}
+        
       </div>
     </div>
   );
