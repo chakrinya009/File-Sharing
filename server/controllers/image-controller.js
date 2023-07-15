@@ -11,7 +11,7 @@ const uploadImage = async (req, res) => {
     console.log(file);
     res
       .status(200)
-      .json({ path: `https://shares-ppq0.onrender.com/file/${file._id}` });
+      .json({ path: `https://share-azw3.onrender.com//file/${file._id}` });
   } catch (err) {
     console.error(err.message);
   }
