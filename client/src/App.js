@@ -48,7 +48,7 @@ const App = () => {
             setFile(e.target.files[0]);
           }}
         />
-        {share?<a href={share}>click chey ra</a>:<div></div>}
+        {share?<a href={share}>click it</a>:<div></div>}
         
       </div>
     </div>
